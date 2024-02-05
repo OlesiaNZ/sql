@@ -50,3 +50,15 @@ WHERE MOD(ID, 2) = 0;
 SELECT COUNT(CITY) - COUNT (DISTINCT CITY) AS Difference
 FROM STATION;
 ```
+9. Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically. 
+```{SQL}
+SELECT CITY, LENGTH(CITY) AS City_len
+FROM STATION
+ORDER BY City_len DESC, CITY
+FETCH FIRST ROW ONLY;
+
+SELECT CITY, LENGTH(CITY) AS City_len
+FROM STATION
+ORDER BY City_len, CITY 
+FETCH FIRST ROW ONLY;
+```
