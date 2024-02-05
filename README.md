@@ -34,3 +34,19 @@ SELECT NAME
 FROM CITY
 WHERE COUNTRYCODE = "JPN";
 ```
+6. Query a list of CITY and STATE from the STATION table.
+```{SQL}
+SELECT CITY, STATE
+FROM STATION;
+```
+7. Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+```{SQL}
+SELECT DISTINCT CITY
+FROM STATION
+WHERE MOD(ID, 2) = 0;
+```
+8. Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+```{SQL}
+SELECT COUNT(CITY) - COUNT (DISTINCT CITY) AS Difference
+FROM STATION;
+```
