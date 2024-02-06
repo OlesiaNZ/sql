@@ -1,4 +1,4 @@
-# Practice in SQL online
+# Practice in SQL online; Basic Select
 
 ## Tasks:
 1. Query all columns for all American cities in the CITY table with populations larger than 100000. 
@@ -96,4 +96,36 @@ WHERE CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CI
 ```
 <br/>
 
-12. 
+12. Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+```{SQL}
+SELECT DISTINCT CITY
+FROM STATION
+WHERE LOWER(SUBSTR(CITY, 1, 1)) IN ('a', 'e', 'i', 'o', 'u')
+  AND LOWER(SUBSTR(CITY, LENGTH(CITY), 1)) IN ('a', 'e', 'i', 'o', 'u');
+```
+<br/>
+
+13. Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+```{SQL}
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT LIKE 'A%' AND CITY NOT LIKE 'E%' AND CITY NOT LIKE 'I%' AND CITY NOT LIKE 'O%' AND CITY NOT LIKE 'U%';
+```
+<br/>
+
+14. Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+```{SQL}
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT LIKE '%a' AND CITY NOT LIKE '%e' AND CITY NOT LIKE '%i' AND CITY NOT LIKE '%o' AND CITY NOT LIKE '%u';
+```
+<br/>
+
+15. Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+```{SQL}
+SELECT DISTINCT CITY
+FROM STATION 
+WHERE LOWER(SUBSTR(CITY, 1, 1)) NOT IN ('a', 'e', 'i', 'o', 'u')
+  OR LOWER(SUBSTR(CITY, LENGTH(CITY), 1)) NOT IN ('a', 'e', 'i', 'o', 'u');
+```
+<br/>
