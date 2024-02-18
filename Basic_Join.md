@@ -34,3 +34,15 @@ AND W.coins_needed = (SELECT MIN(W2.coins_needed)
 ORDER BY W.power DESC, WP.age DESC;
 ```
 <br/>
+
+3. Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+```{SQL}
+SELECT SUM(CITY.POPULATION) AS TOTALPOPULATION
+FROM CITY
+JOIN COUNTRY
+ON CITY.CountryCode = COUNTRY.Code
+WHERE COUNTRY.CONTINENT = 'Asia';
+```
+<br/>
