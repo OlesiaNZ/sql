@@ -59,3 +59,17 @@ ON c.CountryCode = co.Code
 WHERE CONTINENT = 'Africa';
 ```
 <br/>
+
+5. Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+```{SQL}
+SELECT co.CONTINENT, FLOOR(AVG(c.population))
+FROM CITY AS c
+LEFT JOIN COUNTRY AS co
+ON c.CountryCode = co.Code
+WHERE co.CONTINENT IS NOT NULL
+GROUP BY co.CONTINENT;
+```
+<br/>
